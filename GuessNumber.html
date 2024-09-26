@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guessing the Number</title>
+    <style>
+        body{
+            background-image: linear-gradient(rgb(17, 131, 230),rgb(95, 12, 230));
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+        }
+        .main{
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* Internal content's alignment won't change */
+        }
+        h2{
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+        }
+        button{
+            border-radius: 6px;
+            border-style: outset;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        button:hover{
+            background-color: rgb(31, 158, 5);
+        }
+        #num{
+            border-radius: 6px;
+            border-style: outset;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        h3,h4{
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+    </style>
+</head>
+<body align="center">
+    <div class="main">
+        <h2>GUESS NUMBER BETWEEN [1-10]</h2>
+        <input type="text" name="num" id="num" placeholder="enter number">
+        <br><br>
+        <button onclick="guess()">check</button>
+        <h3 id="ans">your answer</h3>
+        <h4 id="scr">Score = 10</h4>
+    </div>
+    <script>
+        var n1 = document.getElementById("num")
+        var r = document.getElementById("ans")
+        var scre = document.getElementById("scr")
+        var tscore = 10
+        var randomnumber = Math.floor(Math.random()*10)+1
+        function guess(){
+            var enumber = Number(n1.value)
+            if(randomnumber==enumber){
+                r.textContent = "Your answer is correct :)"
+                alert("answer is correct")
+            }
+            else{
+                r.textContent = "Your answer is wrong :("
+                tscore = tscore - 1
+                scre.textContent = "Score = "+tscore
+                if(tscore==0){
+                    alert("please refresh the page")
+                }
+            }
+        }
+    </script>
+</body>
+</html>
