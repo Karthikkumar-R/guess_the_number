@@ -58,6 +58,12 @@
         var randomnumber = Math.floor(Math.random()*10)+1
         function guess(){
             var enumber = Number(n1.value)
+            if (!(enumber>0 && enumber <11)){
+                alert("Please enter value between 1-10")
+                document.getElementById('num').value = '';
+
+                return 
+            }
             if(randomnumber==enumber){
                 r.textContent = "Your answer is correct :)"
                 alert("answer is correct")
@@ -67,7 +73,8 @@
                 tscore = tscore - 1
                 scre.textContent = "Score = "+tscore
                 if(tscore==0){
-                    alert("please refresh the page")
+                    r.textContent = "Your reached maximum attempts. Try again..."
+                    tscore = 10
                 }
             }
         }
